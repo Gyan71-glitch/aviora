@@ -1,65 +1,73 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
+import SearchWidget from "@/components/ui/SearchWidget";
+import DestinationGrid from "@/components/home/DestinationGrid";
+import DealsSection from "@/components/home/DealsSection";
+import AIAssistant from "@/components/ui/AIAssistant";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2500&auto=format&fit=crop"
+            alt="Aircraft flying above clouds"
+            fill
+            priority
+            className="object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]"
+          />
+          {/* Gradients to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-midnight-navy/40 via-transparent to-midnight-navy/90" />
+          <div className="absolute inset-0 bg-black/20" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <div className="container-aviora relative z-10 w-full flex flex-col items-center justify-center pt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-12"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="section-label mb-6 tracking-[0.4em]"
+            >
+              Experience the Extraordinary
+            </motion.p>
+            <h1 className="font-display text-6xl md:text-8xl font-medium leading-[1.1] mb-6 drop-shadow-2xl">
+              The Journey Is <br className="hidden md:block" />
+              <span className="text-gold-gradient">The Destination</span>
+            </h1>
+            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-light drop-shadow-md">
+              Book world-class flights, luxury hotels, and premium experiences seamlessly. 
+              Elevate your travel standard.
+            </p>
+          </motion.div>
+
+          <SearchWidget />
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Main Content Areas */}
+      <DestinationGrid />
+      <DealsSection />
+      
+      {/* Footer minimal for now */}
+      <footer className="py-24 md:py-32 border-t border-gray-200 text-center bg-white">
+        <div className="container-aviora">
+          <p className="text-gray-500 text-sm">© {new Date().getFullYear()} AVIORA. All rights reserved.</p>
+        </div>
+      </footer>
+
+      {/* AI Assistant */}
+      <AIAssistant />
+    </main>
   );
 }
