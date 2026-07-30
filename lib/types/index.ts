@@ -42,13 +42,27 @@ export interface Flight {
   refundable?: boolean;
 }
 
+export interface RoomOption {
+  roomId: string;
+  roomType: string;
+  boardBasis: string; // e.g., "Breakfast Included", "Room Only"
+  pricePerNight: number;
+  totalPrice: number;
+  currency: string;
+  maxOccupancy: number;
+  cancellationPolicy: string;
+  available: boolean;
+}
+
 export interface Hotel {
   id: string;
   name: string;
   image: string;
+  galleryImages?: string[];
   location: string;
   city: string;
   country: string;
+  address?: string;
   rating: number;
   reviewCount: number;
   pricePerNight: number;
@@ -57,6 +71,23 @@ export interface Hotel {
   amenities: string[];
   tags: string[];
   featured?: boolean;
+  checkInTime?: string;
+  checkOutTime?: string;
+  rooms?: RoomOption[];
+  description?: string;
+}
+
+export interface HotelSearchParams {
+  destination?: string;
+  checkIn?: string;
+  checkOut?: string;
+  rooms?: number;
+  guests?: number;
+  minPrice?: number;
+  maxPrice?: number;
+  stars?: number[];
+  amenities?: string[];
+  sortBy?: "price_asc" | "price_desc" | "rating" | "popularity";
 }
 
 export interface Destination {

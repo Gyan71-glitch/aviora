@@ -65,11 +65,11 @@ export default function Navbar() {
             </div>
             <span style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "24px",
+              fontSize: "22px",
               fontWeight: 600,
-              letterSpacing: "0.2em",
+              letterSpacing: "0.15em",
               color: textColor,
-            }}>AVIORA</span>
+            }}>SOURCE MY TRIP</span>
           </Link>
 
           {/* Desktop Nav */}

@@ -5,7 +5,12 @@ export const mockHotels: Hotel[] = [
     id: "ht-001",
     name: "Burj Al Arab Jumeirah",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
+    ],
     location: "Jumeirah Beach Road",
+    address: "Jumeirah Street, Umm Suqeim 3, Dubai",
     city: "Dubai",
     country: "UAE",
     rating: 4.9,
@@ -13,15 +18,43 @@ export const mockHotels: Hotel[] = [
     pricePerNight: 45000,
     currency: "INR",
     stars: 5,
-    amenities: ["Private Beach", "Infinity Pool", "Spa", "Fine Dining", "Helipad", "Butler Service"],
+    amenities: ["Private Beach", "Infinity Pool", "Spa", "Fine Dining", "Helipad", "Butler Service", "Free WiFi"],
     tags: ["Iconic", "Ultra Luxury", "Beachfront"],
     featured: true,
+    checkInTime: "15:00",
+    checkOutTime: "12:00",
+    description: "The world's most luxurious hotel featuring duplex suites with private butler service, underwater dining, and stunning Arabian Gulf views.",
+    rooms: [
+      {
+        roomId: "rm-101",
+        roomType: "Deluxe One-Bedroom Suite",
+        boardBasis: "Breakfast Included",
+        pricePerNight: 45000,
+        totalPrice: 45000,
+        currency: "INR",
+        maxOccupancy: 2,
+        cancellationPolicy: "Free cancellation until 48 hours before check-in",
+        available: true,
+      },
+      {
+        roomId: "rm-102",
+        roomType: "Panoramic Ocean Suite",
+        boardBasis: "Half Board (Breakfast + Dinner)",
+        pricePerNight: 58000,
+        totalPrice: 58000,
+        currency: "INR",
+        maxOccupancy: 3,
+        cancellationPolicy: "Non-refundable",
+        available: true,
+      }
+    ]
   },
   {
     id: "ht-002",
     name: "Four Seasons George V",
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
     location: "31 Avenue George V",
+    address: "31 Avenue George V, 75008 Paris",
     city: "Paris",
     country: "France",
     rating: 4.8,
@@ -29,15 +62,32 @@ export const mockHotels: Hotel[] = [
     pricePerNight: 68000,
     currency: "INR",
     stars: 5,
-    amenities: ["Michelin Restaurant", "Spa", "Concierge", "Bar", "Pool", "Valet"],
+    amenities: ["Michelin Restaurant", "Spa", "Concierge", "Bar", "Pool", "Valet", "Free WiFi"],
     tags: ["Historic", "Luxury", "City Center"],
     featured: true,
+    checkInTime: "15:00",
+    checkOutTime: "12:00",
+    description: "An art-deco landmark built in 1928, located just off the Champs-Élysées, offering three Michelin-starred dining options.",
+    rooms: [
+      {
+        roomId: "rm-201",
+        roomType: "Superior Room with Courtyard View",
+        boardBasis: "Breakfast Included",
+        pricePerNight: 68000,
+        totalPrice: 68000,
+        currency: "INR",
+        maxOccupancy: 2,
+        cancellationPolicy: "Free cancellation until 24 hours before check-in",
+        available: true,
+      }
+    ]
   },
   {
     id: "ht-003",
     name: "The Ritz-Carlton Maldives",
     image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80",
     location: "Fari Islands, North Malé Atoll",
+    address: "Fari Islands, North Malé Atoll 20013",
     city: "Maldives",
     country: "Maldives",
     rating: 4.9,
@@ -48,12 +98,29 @@ export const mockHotels: Hotel[] = [
     amenities: ["Private Villa", "Coral Reef", "Overwater Spa", "Water Sports", "Fine Dining", "Yacht"],
     tags: ["Overwater", "Romantic", "All-Inclusive"],
     featured: true,
+    checkInTime: "14:00",
+    checkOutTime: "12:00",
+    description: "Architectural masterpiece over the Indian Ocean with private infinity pools, Aris Meeha personal hosts, and world-class diving.",
+    rooms: [
+      {
+        roomId: "rm-301",
+        roomType: "Ocean Overwater Pool Villa",
+        boardBasis: "All-Inclusive",
+        pricePerNight: 92000,
+        totalPrice: 92000,
+        currency: "INR",
+        maxOccupancy: 2,
+        cancellationPolicy: "Free cancellation up to 7 days before arrival",
+        available: true,
+      }
+    ]
   },
   {
     id: "ht-004",
     name: "Marina Bay Sands",
     image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&q=80",
     location: "10 Bayfront Avenue",
+    address: "10 Bayfront Avenue, Singapore 018956",
     city: "Singapore",
     country: "Singapore",
     rating: 4.7,
@@ -64,12 +131,29 @@ export const mockHotels: Hotel[] = [
     amenities: ["Infinity Pool", "Casino", "Skypark", "Spa", "Shopping Mall", "Celebrity Restaurants"],
     tags: ["Iconic", "City Views", "Rooftop Pool"],
     featured: false,
+    checkInTime: "15:00",
+    checkOutTime: "11:00",
+    description: "Home to the world's largest rooftop infinity pool, offering sweeping skyline views of Singapore's financial district.",
+    rooms: [
+      {
+        roomId: "rm-401",
+        roomType: "Deluxe King City View",
+        boardBasis: "Room Only",
+        pricePerNight: 28000,
+        totalPrice: 28000,
+        currency: "INR",
+        maxOccupancy: 2,
+        cancellationPolicy: "Free cancellation until 48 hours before check-in",
+        available: true,
+      }
+    ]
   },
   {
     id: "ht-005",
     name: "COMO Uma Ubud",
     image: "https://images.unsplash.com/photo-1535827841776-24afc1e255ac?w=800&q=80",
     location: "Jalan Raya Sanggingan",
+    address: "Jl. Raya Sanggingan, Kedewatan, Ubud, Bali",
     city: "Bali",
     country: "Indonesia",
     rating: 4.8,
@@ -80,12 +164,29 @@ export const mockHotels: Hotel[] = [
     amenities: ["Private Pool Villa", "Rainforest Views", "Yoga", "Spa", "Organic Restaurant", "Trekking"],
     tags: ["Jungle", "Wellness", "Romantic"],
     featured: false,
+    checkInTime: "14:00",
+    checkOutTime: "12:00",
+    description: "Luxury resort nestled in the Tjampuhan Valley, offering holistic wellness programs and serene jungle views.",
+    rooms: [
+      {
+        roomId: "rm-501",
+        roomType: "Ubud Suite with Valley View",
+        boardBasis: "Breakfast Included",
+        pricePerNight: 24500,
+        totalPrice: 24500,
+        currency: "INR",
+        maxOccupancy: 2,
+        cancellationPolicy: "Free cancellation until 24 hours before check-in",
+        available: true,
+      }
+    ]
   },
   {
     id: "ht-006",
     name: "The Savoy London",
     image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80",
     location: "Strand, Covent Garden",
+    address: "Strand, London WC2R 0EZ, UK",
     city: "London",
     country: "UK",
     rating: 4.7,
@@ -96,5 +197,21 @@ export const mockHotels: Hotel[] = [
     amenities: ["Thames Views", "Gordon Ramsay Restaurant", "Spa", "Pool", "Afternoon Tea", "Concierge"],
     tags: ["Historic", "Central London", "Fine Dining"],
     featured: false,
+    checkInTime: "15:00",
+    checkOutTime: "12:00",
+    description: "Britain's premier historic hotel on the banks of the Thames, where luxury meets glamour in the heart of London.",
+    rooms: [
+      {
+        roomId: "rm-601",
+        roomType: "Luxury King River View",
+        boardBasis: "Breakfast Included",
+        pricePerNight: 55000,
+        totalPrice: 55000,
+        currency: "INR",
+        maxOccupancy: 2,
+        cancellationPolicy: "Free cancellation until 24 hours before check-in",
+        available: true,
+      }
+    ]
   },
 ];

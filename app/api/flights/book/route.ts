@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
     
     // Create the actual order in Duffel Sandbox to generate a real PNR
     const orderResponse = await duffel.orders.create({
+      type: "instant",
       selected_offers: [offer.id],
       passengers: [
         {

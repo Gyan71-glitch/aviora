@@ -62,7 +62,7 @@ export default function Home() {
       {/* Footer minimal for now */}
       <footer className="py-24 md:py-32 border-t border-gray-200 text-center bg-white">
         <div className="container-aviora">
-          <p className="text-gray-500 text-sm">© {new Date().getFullYear()} AVIORA. All rights reserved.</p>
+          <p className="text-gray-500 text-sm">© {new Date().getFullYear()} SOURCE MY TRIP. All rights reserved.</p>
         </div>
       </footer>
 

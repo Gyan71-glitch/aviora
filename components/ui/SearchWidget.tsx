@@ -1,18 +1,31 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plane, Building, Train, Car, Calendar, Users, Search, MapPin } from "lucide-react";
+import { Plane, Building, Compass, Camera, Car, Calendar, Users, Search, MapPin } from "lucide-react";
 
 const TABS = [
   { id: "flights", label: "Flights", icon: Plane },
   { id: "hotels", label: "Hotels", icon: Building },
-  { id: "trains", label: "Trains", icon: Train },
-  { id: "cars", label: "Cars", icon: Car },
+  { id: "holidays", label: "Holidays", icon: Compass },
+  { id: "sightseeing", label: "Sightseeing", icon: Camera },
+  { id: "transfers", label: "Transfers", icon: Car },
 ];
 
 export default function SearchWidget() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState("flights");
+
+  const handleFlightSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/flights");
+  };
+
+  const handleHotelSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/hotels");
+  };
 
   return (
     <motion.div
@@ -22,7 +35,7 @@ export default function SearchWidget() {
       className="w-full max-w-5xl mx-auto z-10 relative"
     >
       {/* Tabs */}
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-8 overflow-x-auto px-4">
         <div className="flex p-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
           {TABS.map((tab) => {
             const Icon = tab.icon;
@@ -31,7 +44,7 @@ export default function SearchWidget() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative px-8 py-3 rounded-full flex items-center gap-3 text-sm font-medium transition-colors ${
+                className={`relative px-6 md:px-8 py-3 rounded-full flex items-center gap-2.5 text-xs md:text-sm font-medium transition-colors whitespace-nowrap ${
                   isActive ? "text-midnight-navy" : "text-white/70 hover:text-white"
                 }`}
               >
@@ -65,21 +78,21 @@ export default function SearchWidget() {
             className="relative z-10"
           >
             {activeTab === "flights" && (
-              <div className="flex flex-col md:flex-row gap-6 items-end">
+              <form onSubmit={handleFlightSearch} className="flex flex-col md:flex-row gap-6 items-end">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
                   {/* Origin & Destination */}
                   <div className="flex flex-col gap-2">
                     <label className="text-xs font-semibold tracking-widest text-gray-500 uppercase ml-1">From</label>
                     <div className="relative">
                       <Plane className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                      <input type="text" placeholder="Where from?" className="aviora-input pl-11 pr-4 h-14" />
+                      <input type="text" defaultValue="BOM - Mumbai" placeholder="Where from?" className="aviora-input pl-11 pr-4 h-14" />
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className="text-xs font-semibold tracking-widest text-gray-500 uppercase ml-1">To</label>
                     <div className="relative">
                       <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                      <input type="text" placeholder="Where to?" className="aviora-input pl-11 pr-4 h-14" />
+                      <input type="text" defaultValue="DXB - Dubai" placeholder="Where to?" className="aviora-input pl-11 pr-4 h-14" />
                     </div>
                   </div>
                 </div>
@@ -87,63 +100,66 @@ export default function SearchWidget() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
                   {/* Dates & Passengers */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs font-semibold tracking-widest text-gray-500 uppercase ml-1">Dates</label>
+                    <label className="text-xs font-semibold tracking-widest text-gray-500 uppercase ml-1">Departure</label>
                     <div className="relative">
                       <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                      <input type="text" placeholder="Add dates" className="aviora-input pl-11 pr-4 h-14" />
+                      <input type="text" defaultValue="15 Oct 2026" placeholder="Add dates" className="aviora-input pl-11 pr-4 h-14" />
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className="text-xs font-semibold tracking-widest text-gray-500 uppercase ml-1">Passengers</label>
                     <div className="relative">
                       <Users className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                      <input type="text" placeholder="1 Passenger, Economy" className="aviora-input pl-11 pr-4 h-14" />
+                      <input type="text" defaultValue="1 Passenger, Economy" placeholder="1 Passenger, Economy" className="aviora-input pl-11 pr-4 h-14" />
                     </div>
                   </div>
                 </div>
 
                 {/* Search Button */}
-                <button className="btn-gold h-14 px-10 rounded-xl flex items-center justify-center gap-3 whitespace-nowrap w-full md:w-auto mt-6 md:mt-0 group shadow-lg shadow-gold/20">
+                <button type="submit" className="btn-gold h-14 px-10 rounded-xl flex items-center justify-center gap-3 whitespace-nowrap w-full md:w-auto mt-6 md:mt-0 group shadow-lg shadow-gold/20">
                   <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  <span>Search</span>
+                  <span>Search Flights</span>
                 </button>
-              </div>
+              </form>
             )}
 
             {activeTab === "hotels" && (
-              <div className="flex flex-col md:flex-row gap-4 items-end">
+              <form onSubmit={handleHotelSearch} className="flex flex-col md:flex-row gap-4 items-end">
                 <div className="flex-1 flex flex-col gap-1.5">
                   <label className="text-[11px] font-semibold tracking-wider text-gray-500 uppercase ml-1">Destination</label>
                   <div className="relative">
                     <Building className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                    <input type="text" placeholder="Where are you going?" className="aviora-input pl-11 pr-4 h-14" />
+                    <input type="text" defaultValue="Dubai, UAE" placeholder="Where are you going?" className="aviora-input pl-11 pr-4 h-14" />
                   </div>
                 </div>
                 <div className="flex-1 flex flex-col gap-1.5">
                   <label className="text-[11px] font-semibold tracking-wider text-gray-500 uppercase ml-1">Dates</label>
                   <div className="relative">
                     <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                    <input type="text" placeholder="Check in - Check out" className="aviora-input pl-11 pr-4 h-14" />
+                    <input type="text" defaultValue="15 Oct - 20 Oct" placeholder="Check in - Check out" className="aviora-input pl-11 pr-4 h-14" />
                   </div>
                 </div>
                 <div className="flex-1 flex flex-col gap-1.5">
-                  <label className="text-[11px] font-semibold tracking-wider text-gray-500 uppercase ml-1">Guests</label>
+                  <label className="text-[11px] font-semibold tracking-wider text-gray-500 uppercase ml-1">Guests & Rooms</label>
                   <div className="relative">
                     <Users className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                    <input type="text" placeholder="2 Guests, 1 Room" className="aviora-input pl-11 pr-4 h-14" />
+                    <input type="text" defaultValue="2 Guests, 1 Room" placeholder="2 Guests, 1 Room" className="aviora-input pl-11 pr-4 h-14" />
                   </div>
                 </div>
-                <button className="btn-gold h-14 px-8 rounded-xl flex items-center justify-center gap-2 whitespace-nowrap w-full md:w-auto mt-4 md:mt-0 group shadow-lg shadow-gold/20">
+                <button type="submit" className="btn-gold h-14 px-8 rounded-xl flex items-center justify-center gap-2 whitespace-nowrap w-full md:w-auto mt-4 md:mt-0 group shadow-lg shadow-gold/20">
                   <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  <span>Search</span>
+                  <span>Search Hotels</span>
                 </button>
-              </div>
+              </form>
             )}
 
-            {(activeTab === "trains" || activeTab === "cars") && (
+            {(activeTab === "holidays" || activeTab === "sightseeing" || activeTab === "transfers") && (
               <div className="flex justify-center py-8">
-                <p className="text-gray-400 italic font-display text-xl">
-                  {activeTab === "trains" ? "Premium Rail Journeys" : "Luxury Car Rentals"} coming soon.
+                <p className="text-gray-500 italic font-display text-xl">
+                  {activeTab === "holidays" && "Curated Source My Trip Holiday Packages"}
+                  {activeTab === "sightseeing" && "Exclusive Sightseeing & City Tours"}
+                  {activeTab === "transfers" && "Luxury Airport Transfers & Chauffeur Services"}
+                  {" "}coming soon.
                 </p>
               </div>
             )}

@@ -3,13 +3,13 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 
 export const metadata: Metadata = {
-  title: "AVIORA — The Journey Is The Destination",
+  title: "Source My Trip — Luxury Travel & Experiences",
   description:
-    "Book flights, hotels, trains and buses worldwide. AVIORA is the world's most premium travel booking platform.",
-  keywords: "luxury travel, flight booking, hotels, AVIORA, premium travel",
+    "Book flights, hotels, holidays, sightseeing, and transfers worldwide. Source My Trip is your premier travel booking platform.",
+  keywords: "luxury travel, flight booking, hotels, Source My Trip, SMT, travel experiences",
   openGraph: {
-    title: "AVIORA — The Journey Is The Destination",
-    description: "Book flights, hotels, trains and buses worldwide with AVIORA.",
+    title: "Source My Trip — Luxury Travel & Experiences",
+    description: "Book flights, hotels, holidays, sightseeing, and transfers worldwide with Source My Trip.",
     type: "website",
   },
 };
