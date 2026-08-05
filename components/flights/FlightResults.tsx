@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Flight, SearchParams } from "@/app/flights/page";
 import FlightCard from "./FlightCard";
+import FlightOffersCarousel from "./FlightOffersCarousel";
+import PriceTrendBanner from "./PriceTrendBanner";
 import { Bell, Plane, AlertCircle, Loader2 } from "lucide-react";
 
 interface Props {
@@ -23,24 +25,26 @@ function parseDuration(dur: string): number {
 
 function SkeletonCard() {
   return (
-    <div className="bg-white border border-gray-100 rounded-2xl mb-4 p-6 md:p-8 animate-pulse shadow-sm">
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="flex-1 flex flex-col gap-4">
-          <div className="flex items-center gap-8">
-            <div className="w-14 h-14 rounded-full bg-gray-200 shrink-0" />
-            <div className="flex-1 space-y-2">
-              <div className="h-5 bg-gray-200 rounded w-40" />
-              <div className="h-3 bg-gray-100 rounded w-56" />
-              <div className="h-3 bg-gray-100 rounded w-32" />
-            </div>
-            <div className="hidden md:block h-4 bg-gray-200 rounded w-16" />
-            <div className="hidden md:block h-4 bg-gray-200 rounded w-20" />
+    <div className="bg-white border border-slate-200/80 rounded-2xl mb-3.5 p-6 animate-pulse shadow-2xs">
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex items-center gap-3 shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-slate-200/70 shrink-0" />
+        </div>
+        <div className="flex-1 space-y-3">
+          <div className="flex items-center justify-between">
+            <div className="h-6 bg-slate-200/70 rounded-lg w-24" />
+            <div className="h-4 bg-slate-100 rounded-lg w-20" />
+            <div className="h-6 bg-slate-200/70 rounded-lg w-24" />
+          </div>
+          <div className="flex gap-2">
+            <div className="h-4 bg-slate-100 rounded-full w-24" />
+            <div className="h-4 bg-slate-100 rounded-full w-20" />
           </div>
         </div>
-        <div className="md:w-48 flex flex-col gap-3 items-end">
-          <div className="h-8 bg-gray-200 rounded w-28" />
-          <div className="h-4 bg-gray-100 rounded w-20" />
-          <div className="h-10 bg-gold/20 rounded-xl w-full" />
+        <div className="md:w-44 flex flex-col gap-2 items-end shrink-0 border-t md:border-t-0 md:border-l border-slate-100 md:pl-6 pt-3 md:pt-0">
+          <div className="h-7 bg-slate-200/70 rounded-lg w-28" />
+          <div className="h-3 bg-slate-100 rounded w-20" />
+          <div className="h-9 bg-amber-200/50 rounded-xl w-full" />
         </div>
       </div>
     </div>
@@ -93,6 +97,17 @@ export default function FlightResults({
 
   return (
     <div className="flex-1 w-full flex flex-col gap-3">
+      {/* MakeMyTrip Promo Offers Carousel Cards */}
+      {!loading && <FlightOffersCarousel />}
+
+      {/* AI Price Prediction & High Demand Trend Alert */}
+      {!loading && flights.length > 0 && (
+        <PriceTrendBanner
+          origin={searchParams.origin || "DEL"}
+          destination={searchParams.destination || "BOM"}
+        />
+      )}
+
       {/* Sort Tabs */}
       {!loading && flights.length > 0 && (
         <div className="flex rounded-2xl overflow-hidden mb-2 bg-white shadow-sm border border-gray-200">

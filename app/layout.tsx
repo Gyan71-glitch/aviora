@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import { AuthProvider } from "@/lib/context/AuthContext";
+import AuthModal from "@/components/auth/AuthModal";
 
 export const metadata: Metadata = {
-  title: "Source My Trip — Luxury Travel & Experiences",
+  title: "MTTPL — Luxury Travel & Experiences",
   description:
-    "Book flights, hotels, holidays, sightseeing, and transfers worldwide. Source My Trip is your premier travel booking platform.",
-  keywords: "luxury travel, flight booking, hotels, Source My Trip, SMT, travel experiences",
+    "Book flights, hotels, holidays, sightseeing, and transfers worldwide. MTTPL is your premier travel booking platform.",
+  keywords: "luxury travel, flight booking, hotels, MTTPL, Malhotra's Tour & Travel, travel experiences",
   openGraph: {
-    title: "Source My Trip — Luxury Travel & Experiences",
-    description: "Book flights, hotels, holidays, sightseeing, and transfers worldwide with Source My Trip.",
+    title: "MTTPL — Luxury Travel & Experiences",
+    description: "Book flights, hotels, holidays, sightseeing, and transfers worldwide with MTTPL.",
     type: "website",
   },
 };
@@ -30,8 +32,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Navbar />
-        {children}
+        <AuthProvider>
+          <Navbar />
+          {children}
+          <AuthModal />
+        </AuthProvider>
       </body>
     </html>
   );

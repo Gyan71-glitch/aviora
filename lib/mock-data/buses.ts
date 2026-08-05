@@ -1,0 +1,43 @@
+import { BusRoute } from "../types";
+
+export const mockBuses: BusRoute[] = [
+  {
+    id: "bus-001",
+    operatorName: "Zingbus Premium AC Sleeper",
+    busType: "Volvo Multi-Axle AC Sleeper (2+1)",
+    origin: "Delhi (Kashmere Gate)",
+    destination: "Manali (Private Bus Stand)",
+    departureTime: "20:30",
+    arrivalTime: "08:30",
+    duration: "12h 00m",
+    price: 1250,
+    rating: 4.8,
+    seatsAvailable: 14,
+  },
+  {
+    id: "bus-002",
+    operatorName: "IntrCity SmartBus",
+    busType: "AC Sleeper Washroom & Wifi (2+1)",
+    origin: "Mumbai (Borivali)",
+    destination: "Goa (Panjim)",
+    departureTime: "18:00",
+    arrivalTime: "07:30",
+    duration: "13h 30m",
+    price: 1480,
+    rating: 4.7,
+    seatsAvailable: 9,
+  },
+  {
+    id: "bus-003",
+    operatorName: "VRL Travels Luxury AC",
+    busType: "Volvo B11R Multi-Axle AC Seater",
+    origin: "Bengaluru (Majestic)",
+    destination: "Hyderabad (MGBS)",
+    departureTime: "22:00",
+    arrivalTime: "06:15",
+    duration: "8h 15m",
+    price: 980,
+    rating: 4.6,
+    seatsAvailable: 22,
+  },
+];

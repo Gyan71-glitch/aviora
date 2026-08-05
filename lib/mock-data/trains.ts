@@ -1,0 +1,56 @@
+import { TrainRoute } from "../types";
+
+export const mockTrains: TrainRoute[] = [
+  {
+    id: "trn-001",
+    trainNumber: "20901",
+    trainName: "Vande Bharat Express",
+    origin: "Mumbai Central",
+    originCode: "MMCT",
+    destination: "Gandhinagar Capital",
+    destinationCode: "GNC",
+    departureTime: "06:00",
+    arrivalTime: "12:25",
+    duration: "6h 25m",
+    runsOn: "Mon, Tue, Wed, Thu, Fri, Sat",
+    prices: {
+      CC: 1420,
+      EC: 2650,
+    },
+  },
+  {
+    id: "trn-002",
+    trainNumber: "12951",
+    trainName: "Mumbai Rajdhani Express",
+    origin: "Mumbai Central",
+    originCode: "MMCT",
+    destination: "New Delhi",
+    destinationCode: "NDLS",
+    departureTime: "17:00",
+    arrivalTime: "08:32",
+    duration: "15h 32m",
+    runsOn: "Daily",
+    prices: {
+      "3A": 2450,
+      "2A": 3650,
+      "1A": 4890,
+    },
+  },
+  {
+    id: "trn-003",
+    trainNumber: "12002",
+    trainName: "Bhopal Shatabdi Express",
+    origin: "New Delhi",
+    originCode: "NDLS",
+    destination: "Rani Kamlapati",
+    destinationCode: "RKMP",
+    departureTime: "06:00",
+    arrivalTime: "14:40",
+    duration: "8h 40m",
+    runsOn: "Daily",
+    prices: {
+      CC: 1180,
+      EC: 2150,
+    },
+  },
+];

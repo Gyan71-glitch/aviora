@@ -1,0 +1,40 @@
+import { VisaOption } from "../types";
+
+export const mockVisas: VisaOption[] = [
+  {
+    id: "visa-001",
+    country: "Dubai (UAE)",
+    flag: "🇦🇪",
+    visaType: "30-Day Express Tourist eVisa",
+    processingTime: "24–48 Hours",
+    validity: "60 Days from Issue",
+    price: 6990,
+    entryType: "Single Entry",
+    documentsRequired: ["Passport Scanned Copy (Front & Back)", "Passport Size Photo", "Pan Card"],
+    featured: true,
+  },
+  {
+    id: "visa-002",
+    country: "Singapore",
+    flag: "🇸🇬",
+    visaType: "Tourist eVisa",
+    processingTime: "3–5 Working Days",
+    validity: "Up to 2 Years Multiple Entry",
+    price: 3200,
+    entryType: "Multiple Entry",
+    documentsRequired: ["Passport Copy", "Covering Letter", "Bank Statement 6 Months", "Flight & Hotel Confirmation"],
+    featured: true,
+  },
+  {
+    id: "visa-003",
+    country: "Schengen (Europe)",
+    flag: "🇪🇺",
+    visaType: "Tourist Visa (France/Germany/Swiss)",
+    processingTime: "10–15 Working Days",
+    validity: "90 Days",
+    price: 9800,
+    entryType: "Multiple Entry",
+    documentsRequired: ["Passport", "ITR 3 Years", "Bank Statement", "Travel Insurance €30k", "VFS Appointment Slot"],
+    featured: true,
+  },
+];
